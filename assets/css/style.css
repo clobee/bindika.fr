@@ -438,13 +438,13 @@ body {
 }
 
 .nav-bg .navigation-menu .navbar-nav li a:hover {
-	color: #48b14d;
+	color: #0581e4;
 }
 
 .nav-bg .navbar-nav>.active>a,
 .nav-bg .navbar-nav>.active>a:hover,
 .nav-bg .navbar-nav>.active>a:focus {
-	color: #48b14d !important;
+	color: #0581e4 !important;
 	background-color: transparent;
 }
 

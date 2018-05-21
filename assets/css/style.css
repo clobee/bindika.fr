@@ -604,7 +604,7 @@ body {
 
 .facts {
 	float: right;
-	margin-top: 30px;
+	/*margin-top: 30px;*/
 }
 
 .count-item {
@@ -642,9 +642,9 @@ body {
 	float: right;
 }
 
-.progress-box {
-	margin-bottom: 50px;
-}
+/*.progress-box {*/
+	/*margin-bottom: 50px;*/
+/*}*/
 
 .progress-box p {
 	font-weight: 600;

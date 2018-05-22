@@ -1,22 +1,24 @@
-/* eslint-disable global-require, import/no-unresolved, react/no-multi-comp */
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import GithubCorner from 'react-github-corner';
-// // import { Catalog, CodeSpecimen, ReactSpecimen, pageLoader } from 'catalog';
-// import SchoolIcon from 'material-ui-icons/School';
-// import WorkIcon from 'material-ui-icons/Work';
-//
-// import WorkIcon from 'material-ui/lib/svg-icons/file/cloud-download';
-//
-//
 
-
-// import 'purecss/build/pure.css';
+import SchoolIcon from 'material-ui-icons/School';
+import WorkIcon from 'material-ui-icons/Work';
 
 import {VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-// import './main.css';
-// import '../style.css';
+
+
+// import { asyncComponent } from 'react-async-component'
+//
+// const MaterialIconAsync = ({ icon }) => {
+//     let iconName = icon.replace(/Icon$/, '')
+//     return React.createElement(asyncComponent({
+//         resolve: () => import(
+//             /* webpackMode: "eager" */
+//             `material-ui-icons/${iconName}`)
+//     }))
+// }
+//
 
 
 class Timeline extends React.Component {
@@ -27,13 +29,13 @@ class Timeline extends React.Component {
             <VerticalTimeline>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    date="Dec 2017 - present"
                     iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-                    // icon="<Icon>star</Icon>"
+                    icon={<WorkIcon />}
                 >
                     <h3 className="vertical-timeline-element-title">Web Developer</h3>
                     <h4 className="vertical-timeline-element-subtitle">Freelance</h4>
-                    <h4 className="vertical-timeline-element-subtitle">London, UK</h4>
+                    <h5 className="vertical-timeline-element-subtitle">London, UK</h5>
+                    <h5 className="vertical-timeline-element-mydate">Dec 2017 - present</h5>
                     <p>
                         Full stack developer with broard experience in all aspects of web development, providing client
                         consultation and support.
@@ -44,13 +46,13 @@ class Timeline extends React.Component {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    date="Feb 2016 - Dec 2017"
                     iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-                    // icon="<Icon>star</Icon>"
+                    icon={<WorkIcon />}
                 >
                     <h3 className="vertical-timeline-element-title">Senior Developer</h3>
                     <h4 className="vertical-timeline-element-subtitle">Viacom International Media Networks</h4>
-                    <h4 className="vertical-timeline-element-subtitle">London, UK</h4>
+                    <h5 className="vertical-timeline-element-subtitle">London, UK</h5>
+                    <h5 className="vertical-timeline-element-mydate">Feb 2016 - Dec 2017</h5>
                     <p>
 
                         Rebuilt & developed new features for the company whole applications/websites in PHP (Drupal,
@@ -66,13 +68,13 @@ class Timeline extends React.Component {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    date="Apr 2013 - Feb 2016"
                     iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-                    icon="<Icon>star</Icon>"
+                    icon={<WorkIcon />}
                 >
                     <h3 className="vertical-timeline-element-title">Lead Developer (Digital Development Manager)</h3>
                     <h4 className="vertical-timeline-element-subtitle">Bloodwise, Blood Cancer Charity - http://bloodwise.org.uk</h4>
-                    <h4 className="vertical-timeline-element-subtitle">London, UK</h4>
+                    <h5 className="vertical-timeline-element-subtitle">London, UK</h5>
+                    <h5 className="vertical-timeline-element-mydate">Apr 2013 - Feb 2016</h5>
                     <p>
                         Lead developer responsible for all digital projects in the company.
                         <br/><br/>
@@ -92,14 +94,14 @@ class Timeline extends React.Component {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    date="Nov 2012 - Apr 2013"
                     iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-                    // icon="<Icon>star</Icon>"
+                    icon={<WorkIcon />}
                 >
                     <h3 className="vertical-timeline-element-title">Developer [contract]</h3>
                     <h4 className="vertical-timeline-element-subtitle">Twogether, Creative agency -
                         https://www.wearetogether.com</h4>
-                    <h4 className="vertical-timeline-element-subtitle">Beaconsfield, UK</h4>
+                    <h5 className="vertical-timeline-element-subtitle">Beaconsfield, UK</h5>
+                    <h5 className="vertical-timeline-element-mydate">Nov 2012 - Apr 2013</h5>
                     <p>
 
                         Part of a team of 2 developers, assisted by contractors (working remotely / on the project
@@ -113,14 +115,14 @@ class Timeline extends React.Component {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    date="May 2012 - Nov 2012"
                     iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-                    // icon="<Icon>star</Icon>"
+                    icon={<WorkIcon />}
                 >
                     <h3 className="vertical-timeline-element-title">Software Developer [contract]</h3>
                     <h4 className="vertical-timeline-element-subtitle">Prism DM, Fully integrated fulfilment service -
                         https://www.prism-dm.com</h4>
-                    <h4 className="vertical-timeline-element-subtitle">Farnborough, UK</h4>
+                    <h5 className="vertical-timeline-element-subtitle">Farnborough, UK</h5>
+                    <h5 className="vertical-timeline-element-mydate">May 2012 - Nov 2012</h5>
                     <p>
                         Part of a team of 10 developers working on various projects:
                         Website creation & modification (main project: http://www.pktmny.com/,
@@ -134,14 +136,14 @@ class Timeline extends React.Component {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    date="Jun 2011 - Apr 2012"
                     iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-                    // icon="<Icon>star</Icon>"
+                    icon={<WorkIcon />}
                 >
                     <h3 className="vertical-timeline-element-title">Developer Perl (integration team)</h3>
                     <h4 className="vertical-timeline-element-subtitle">Broadbean Technology, Jobs posting application -
                         https://www.broadbean.com</h4>
-                    <h4 className="vertical-timeline-element-subtitle">London, UK</h4>
+                    <h5 className="vertical-timeline-element-subtitle">London, UK</h5>
+                    <h5 className="vertical-timeline-element-mydate">Jun 2011 - Apr 2012</h5>
                     <p>
                         Hired as a Perl developer for the integration team.
                         Working within a team while managing my own projects.
@@ -154,14 +156,14 @@ class Timeline extends React.Component {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    date="Sep 2010 - Jun 2011"
                     iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-                    // icon="<Icon>star</Icon>"
+                    icon={<WorkIcon />}
                 >
                     <h3 className="vertical-timeline-element-title">Developer and Strategist (Web & Network)</h3>
                     <h4 className="vertical-timeline-element-subtitle">PMC Milliot, E-commerce websites -
                         http://www.balance-milliot.fr</h4>
-                    <h4 className="vertical-timeline-element-subtitle">Paris, France</h4>
+                    <h5 className="vertical-timeline-element-subtitle">Paris, France</h5>
+                    <h5 className="vertical-timeline-element-subtitle">Sep 2010 - Jun 2011</h5>
                     <p>
                         Trained developers on using and maintaining the Prestashop system (previously created and
                         deployed by an agency).
@@ -174,13 +176,13 @@ class Timeline extends React.Component {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    date="Oct 2007 - Oct 2010"
                     iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-                    // icon="<Icon>star</Icon>"
+                    icon={<WorkIcon />}
                 >
                     <h3 className="vertical-timeline-element-title">Developer</h3>
                     <h4 className="vertical-timeline-element-subtitle">BJNET, Online gaming industry - http://www.gagnerducash.com</h4>
-                    <h4 className="vertical-timeline-element-subtitle">Paris, France</h4>
+                    <h5 className="vertical-timeline-element-subtitle">Paris, France</h5>
+                    <h5 className="vertical-timeline-element-mydate">Oct 2007 - Oct 2010</h5>
                     <p>
                         I was part of a 4-person team, whilst at the same time studying for my Masters.
 
@@ -197,26 +199,28 @@ class Timeline extends React.Component {
 
                 <VerticalTimelineElement
                     className="vertical-timeline-element--education"
-                    date="2009 - 2010"
                     iconStyle={{background: 'rgb(233, 30, 99)', color: '#fff'}}
-                    icon="<Icon>star</Icon>"
+                    icon={<WorkIcon />}
                 >
                     <h3 className="vertical-timeline-element-title">University Paris-Est Marne-La-Vallee</h3>
                     <h4 className="vertical-timeline-element-subtitle">Master's degree, IT project management / Quality
                         management system</h4>
+                    <h5 className="vertical-timeline-element-subtitle">Paris, France</h5>
+                    <h5 className="vertical-timeline-element-mydate">2009 - 2010</h5>
                     <p>
                         I study while working: One month at Uni the other at work
                     </p>
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--education"
-                    date="2007 - 2009"
                     iconStyle={{background: 'rgb(233, 30, 99)', color: '#fff'}}
-                    icon="<Icon>star</Icon>"
+                    icon={<SchoolIcon />}
                 >
                     <h3 className="vertical-timeline-element-title">University of Cergy-Pontoise</h3>
                     <h4 className="vertical-timeline-element-subtitle">European Bachelor Degree in Global IT System,
                         Specialized in Unix/Linux system</h4>
+                    <h5 className="vertical-timeline-element-subtitle">Paris, France</h5>
+                    <h5 className="vertical-timeline-element-mydate">2007 - 2009</h5>
                     <p>
                         I study while working: One month at Uni the other at work
                     </p>
@@ -224,13 +228,14 @@ class Timeline extends React.Component {
 
                 <VerticalTimelineElement
                     className="vertical-timeline-element--education"
-                    date="2005 - 2007"
                     iconStyle={{background: 'rgb(233, 30, 99)', color: '#fff'}}
-                    // icon="<Icon>star</Icon>"
+                    icon={<SchoolIcon />}
                 >
                     <h3 className="vertical-timeline-element-title">CFA Leonard de Vinci</h3>
                     <h4 className="vertical-timeline-element-subtitle">BTEC Higher National Diploma, System, Networking,
                         and LAN/WAN</h4>
+                    <h5 className="vertical-timeline-element-subtitle">Melun, France</h5>
+                    <h5 className="vertical-timeline-element-mydate">2005 - 2007</h5>
                     <p>
                         Study while working: One month at University the other at work
                     </p>

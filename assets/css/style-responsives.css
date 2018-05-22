@@ -91,6 +91,7 @@
 	}
 	.facts {
 		float: left;
+		margin-top: 30px;
 	}
 	.numscroller {
 		font-size: 25px;
@@ -219,10 +220,10 @@
 		max-width: 100%;
 		width: 30em;
 	}
-	/*.facts {*/
-		/*margin-top: 30px;*/
+	.facts {
+		margin-top: 30px;
 		/*margin-left: 10px;*/
-	/*}*/
+	}
 	.count-item {
 		margin-bottom: 20px;
 	}
@@ -402,4 +403,6 @@
 		margin-top: -25px;
 		margin-left: -10.6px;
 	}
+
+
 }

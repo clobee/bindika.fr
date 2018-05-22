@@ -1365,3 +1365,19 @@ blockquote footer {
 	font-size: 16px;
 	font-weight: 600;
 }
+
+u {
+	/*border-bottom: 2px solid currentColor;*/
+	border-bottom: 1px #0581e4 dotted;
+	text-decoration: none;
+}
+
+.badge-light {
+	background-color: #efefef;
+	color: #000;
+}
+
+.badge-dark {
+	background-color: #0581e4;
+}
+

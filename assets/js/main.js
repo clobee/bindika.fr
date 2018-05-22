@@ -29,10 +29,10 @@
         /* XX. PRELOADER
         ==================================================*/
 
-        $(window).on('load', function () {
-            $("#status").fadeOut();
-            $("#preloader").delay(500).fadeOut("slow");
-        });
+        // $(window).on('load', function () {
+        //     $("#status").fadeOut();
+        //     $("#preloader").delay(500).fadeOut("slow");
+        // });
 
 
         /* 01. NAVIGATION
@@ -113,7 +113,7 @@
 
         /* 07. PORTFOLIO FILTER IMAGE
         ==================================================*/
-        $('#port-image').mixItUp();
+        // $('#port-image').mixItUp();
 
 
         /* 08. TESTIMONIAL SLIDER
@@ -121,7 +121,7 @@
 
         $('.flexslider').flexslider({
             animation: "fade",
-            directionNav: false
+            directionNav: true
         });
 
 
@@ -142,12 +142,12 @@
         $(document).on('ready', function () {
 
             // Add minus icon for collapse element which is open by default
-            $(".collapse.in").each(function () {
+            $("#accordion").each(function () {
                 $(this).siblings(".panel-heading").find(".glyphicon").addClass("glyphicon-minus").removeClass("glyphicon-plus");
             });
 
             // Toggle plus minus icon on show hide of collapse element
-            $(".collapse").on('show.bs.collapse', function () {
+            $("#accordion").on('show.bs.collapse', function () {
                 $(this).parent().find(".glyphicon").removeClass("glyphicon-plus").addClass("glyphicon-minus");
             }).on('hide.bs.collapse', function () {
                 $(this).parent().find(".glyphicon").removeClass("glyphicon-minus").addClass("glyphicon-plus");

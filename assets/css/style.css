@@ -1343,6 +1343,10 @@ blockquote footer {
 	margin-top: 15px;
 }
 
+#timeline .vertical-timeline-element-content p {
+	font-size: 14px;
+}
+
 #timeline p, #timeline .vertical-timeline-element-date {
 	font-size: 16px;
 }

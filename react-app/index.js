@@ -204,7 +204,9 @@ class Timeline extends React.Component {
                     <p>
                         I was part of a 4-person team, whilst at the same time studying for my Masters.
 
-                        During the first year, I mainly worked as an HTML/CSS integrator and a <span
+                        During the first year, I mainly worked as an <span
+                        className="badge badge-light">HTML</span> <span
+                        className="badge badge-light">CSS</span> integrator and a <span
                         className="badge badge-dark">PHP</span> developer.
                         In the second year, my responsibilities included project management and further
                         technologies <span className="badge badge-light">Actionscript</span> <span

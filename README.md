@@ -1,4 +1,4 @@
-# Welcome to GitHub Pages
+# About this project
 
 Here is how I built my **personal resume-website**:
 

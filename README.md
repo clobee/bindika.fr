@@ -15,5 +15,6 @@ The **coolest things** so far of this project:
 - I will add a blog sections loading my posts in Ajax from Medium (and other platforms)
 - A little section of what I like to do 
 - I want to also add a section with my most significant projects (I am currently re-doing some of them in order to have it stored on Github)
+- I will improve my page implementing the advises from PageSpeed Insights
 
 **View the project**: http://bindika.fr

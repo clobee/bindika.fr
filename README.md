@@ -1,5 +1,4 @@
-## Welcome to GitHub Pages
-
+# Welcome to GitHub Pages
 
 Here is how I built my **personal resume-website**:
 
@@ -10,9 +9,11 @@ In details, for this project I am using: ReactJs, Jquery (a set of modules that 
 The **coolest things** so far of this project:
 - Timeline, based on [react-vertical-timeline](https://stephane-monnot.github.io/react-vertical-timeline)
 
-# What's next?
+## What's next?
 
 - I am planning on making the stack more consistent by using more React.
 - I will add a blog sections loading my posts in Ajax from Medium (and other platforms)
 - A little section of what I like to do 
 - I want to also add a section with my most significant projects (I am currently re-doing some of them in order to have it stored on Github)
+
+**View the project**: http://bindika.fr

@@ -1,3 +1,10 @@
+.docker-sync/
+
 node_modules/
 *.DS_Store
 
+error_log
+!database-init/.htaccess
+database-init/*
+
+*.idea/

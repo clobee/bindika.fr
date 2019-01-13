@@ -1,0 +1,132 @@
+version: "3"
+
+services:
+  db:
+    image: "wodby/mariadb:${MARIADB_TAG}"
+    container_name: "${PROJECT_NAME}_database"
+    stop_grace_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+#      MYSQL_DATABASE: "${DB_NAME}"
+#      MYSQL_USER: "${DB_USER}"
+      MYSQL_PASSWORD: "${DB_PASSWORD}"
+#     volumes:
+#       - ./${PROJECT_NAME}_database-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+# #      - /path/to/mariadb/data/on/host:/var/lib/mysql # I want to manage volumes manually.
+
+  php:
+    image: "wodby/wordpress-php:${PHP_TAG}"
+    container_name: "${PROJECT_NAME}_php"
+    environment:
+      PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
+#      DB_HOST: "${DB_HOST}"
+      DB_USER: "${DB_USER}"
+      DB_PASSWORD: "${DB_PASSWORD}"
+      DB_NAME: "${DB_NAME}"
+      DB_DRIVER: "${DB_DRIVER}"
+## Read instructions at https://wodby.com/stacks/drupal/docs/local/xdebug/
+#       PHP_XDEBUG: 1
+#       PHP_XDEBUG_DEFAULT_ENABLE: 1
+#       PHP_XDEBUG_REMOTE_CONNECT_BACK: 1
+#       PHP_XDEBUG_REMOTE_AUTOSTART: 1
+#       PHP_IDE_CONFIG: serverName=Docker
+#       PHP_XDEBUG_MAX_NESTING_LEVEL: 256
+# #      PHP_XDEBUG_REMOTE_HOST: host.docker.internal # Docker 18.03+ & Linux/Mac/Win
+# #      PHP_XDEBUG_REMOTE_HOST: 172.17.0.1 # Linux, Docker < 18.03
+# #      PHP_XDEBUG_REMOTE_HOST: 10.254.254.254 # macOS, Docker < 18.03
+# #      PHP_XDEBUG_REMOTE_HOST: 10.0.75.1 # Windows, Docker < 18.03
+#       PHP_XDEBUG_REMOTE_HOST: 127.0.0.1
+#       SSH_AUTH_SOCK: /ssh-agent
+    volumes:
+      - ./:/var/www/html
+# For macOS users (https://wodby.com/stacks/drupal/docs/local/docker-for-mac/)
+      - ./:/var/www/html:cached # User-guided caching
+      - docker-sync:/var/www/html # Docker-sync
+## For Xdebug profiler files
+      # - files:/mnt/files
+
+  apache:
+    image: wodby/php-apache:$APACHE_TAG
+    container_name: "${PROJECT_NAME}_apache"
+    depends_on:
+      - php
+    environment:
+      APACHE_LOG_LEVEL: debug
+      APACHE_BACKEND_HOST: php
+      APACHE_SERVER_ROOT: /var/www/html/
+    volumes:
+      - ./:/var/www/html
+    labels:
+      traefik.backend: '${PROJECT_NAME}_apache'
+      traefik.port: '80'
+      traefik.frontend.rule: 'Host:${PROJECT_BASE_URL}'
+
+#  redis:
+#    image: 'wodby/redis:${REDIS_TAG}'
+#    container_name: "${PROJECT_NAME}_redis"
+
+  pma:
+    image: 'phpmyadmin/phpmyadmin'
+    container_name: "${PROJECT_NAME}_pma"
+    depends_on:
+      - php
+      - db
+    environment:
+#      PMA_HOST: $DB_HOST
+#      PMA_USER: $DB_USER
+#      PMA_PASSWORD: $DB_PASSWORD
+      PHP_UPLOAD_MAX_FILESIZE: 1G
+      PHP_MAX_INPUT_VARS: 1G
+    labels:
+      traefik.backend: '${PROJECT_NAME}_pma'
+      traefik.port: '80'
+      traefik.frontend.rule: "Host:pma.${PROJECT_BASE_URL}"
+
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: "${PROJECT_NAME}_mailhog"
+    labels:
+      traefik.backend: '${PROJECT_NAME}_mailhog'
+      traefik.port: '8025'
+      traefik.frontend.rule: "Host:mailhog.${PROJECT_BASE_URL}"
+
+
+  portainer:
+    image: portainer/portainer
+    restart: unless-stopped
+    container_name: "${PROJECT_NAME}_portainer"
+    command: --no-auth -H unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - 'traefik.backend=portainer'
+      - 'traefik.port=9000'
+      - 'traefik.frontend.rule=Host:portainer.${PROJECT_BASE_URL}'
+#    ports:
+#      - '8090:9000'
+
+  reverse_proxy:
+    image: traefik
+    restart: unless-stopped
+    container_name: "${PROJECT_NAME}_traefik"
+    #    command: '-c /dev/null --web --docker --logLevel=INFO'
+    command: '--api --docker'
+    ports:
+    - '80:80' #The HTTP port
+    - '8080:8080' #The Web UI (enabled by --api)
+    volumes:
+    - '/var/run/docker.sock:/var/run/docker.sock'
+
+#networks:
+#  default:
+#    external:
+#      name: ${PROJECT_NAME}
+
+
+volumes:
+# Docker-sync for macOS users
+  docker-sync:
+    external: true
+# For Xdebug profiler
+  files:

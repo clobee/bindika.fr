@@ -8,3 +8,5 @@ error_log
 database-init/*
 
 *.idea/
+vendor/
+*/vendor/
